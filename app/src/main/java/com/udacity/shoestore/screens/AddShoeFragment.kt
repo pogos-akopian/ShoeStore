@@ -56,7 +56,6 @@ class AddShoeFragment : Fragment() {
         with(binding) {
             // reset errors when typing
             editTextName.addTextChangedListener(textWatcher)
-            editTextCompany.addTextChangedListener(textWatcher)
             editTextDescription.addTextChangedListener(textWatcher)
             editTextSize.addTextChangedListener(textWatcher)
 
@@ -70,13 +69,6 @@ class AddShoeFragment : Fragment() {
             }
             fragmentViewModel.descriptionIsCorrect.observe(viewLifecycleOwner) {
                 textInputLayoutDescription.error = if (!it) {
-                    getString(R.string.error_field_must_not_be_empty)
-                } else {
-                    null
-                }
-            }
-            fragmentViewModel.companyIsCorrect.observe(viewLifecycleOwner) {
-                textInputLayoutCompany.error = if (!it) {
                     getString(R.string.error_field_must_not_be_empty)
                 } else {
                     null
